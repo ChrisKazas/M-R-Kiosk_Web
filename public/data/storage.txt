@@ -1,0 +1,119 @@
+ // Reporting data set of Shops
+    shopModel.find(function(err, shops) {
+        if (err) {
+            console.log(err);
+        } else {
+            
+            let activeShops = 0;
+            let nonActiveShops = 0;
+            let totalShops = 0;
+            dBData.push(shops);
+            // console.log(shops);
+            
+
+            shops.forEach(function(shop) {
+                totalShops++;
+                if (shop.active == true) {
+                    activeShops++;
+                }
+                if (shop.active == false) {
+                    nonActiveShops++;
+                }
+            });
+            totalShops = activeShops + nonActiveShops;
+            // console.log("Shops: " + totalShops);
+            // console.log("Active Shops: " + activeShops);shops
+            // console.log("Non Active Shops: " + nonActiveShops);
+        }
+    });
+
+    // Reporting data set of Mechanics
+    mechModel.find(function(err, mechs) {
+        if (err) {
+            console.log(err);
+        } else {
+            let activeMechs = 0;
+            let nonActiveMechs = 0;
+            let totalMechs = 0;
+            dBData.push(mechs);
+
+            mechs.forEach(function(mech) {
+
+                if (mech.active == true) {
+                    activeMechs++;
+                }
+                if (mech.active == false) {
+                    nonActiveMechs++;
+                }
+            });
+
+            totalMechs = activeMechs + nonActiveMechs;
+            // console.log("Total Mechanics: " + totalMechs)
+            // console.log("Active Mechanics: " + activeMechs)
+            // console.log("Non Active Mechanics: " + nonActiveMechs)
+        }
+    });
+
+    workOrderModel.find(function(err, workOrders) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            // workordermodel schema (comments for development)
+            // mechanicID:	{type: mongoose.Schema.Types.ObjectId, required: false},
+            // shopID:	{type: mongoose.Schema.Types.ObjectId, required: false},
+            // pri:		{type: String, required: true},
+            // dateOpened:	{type: Date, required: true},
+            // dateClosed:	{type: Date, required: false},
+            // workTodo:	{type: String, required: false},
+            // workDone:	{type: String, required: false},
+            // woID:		{type: String, required: false}
+
+            let totalWrkOrds = 0;
+            let wrkOrdPri1 = 0;
+            let wrkOrdPri2 = 0;
+            let wrkOrdPri3 = 0;
+            let wrkOrdPri4 = 0;
+            
+            dBData.push(workOrders);
+            
+
+            let today = new Date(Date.now()).toUTCString();
+
+            //console.log(today);
+            let byDate = 0;
+
+            workOrders.forEach(function(wrkOrd) {
+
+                if (wrkOrd.dateOpened < today) {
+                    byDate++;
+                }
+
+                // Get count of workOrder by Priority level
+                if (wrkOrd.pri == '1') {
+                    wrkOrdPri1++;
+                }
+                if (wrkOrd.pri == '2') {
+                    wrkOrdPri2++;
+                }
+                if (wrkOrd.pri == '3') {
+                    wrkOrdPri3++;
+                }
+                if (wrkOrd.pri == '4') {
+                    wrkOrdPri4++;
+                }
+            });
+            // console.log("Work orders with priority 1: " + wrkOrdPri1);
+            // console.log("Work orders with priority 2: " + wrkOrdPri2);
+            // console.log("Work orders with priority 3: " + wrkOrdPri3);
+            // console.log("Work orders with priority 4: " + wrkOrdPri4);
+            // console.log("Work orders by Date: " + byDate);
+
+        }
+    });
+    
+    // dBData.push(Shops);
+    // dBData.push(Mechs);
+    // dBData.push(WrkOrds);
+    // console.log(shops);
+    res.send(dBData);

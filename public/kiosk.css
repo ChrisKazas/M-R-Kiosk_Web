@@ -1,0 +1,176 @@
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+		background-color:#C3C4C4;
+	}
+	.accordion-list {
+		padding:10px
+	}
+	#left {
+		float: left;
+		width: 290px;
+	}
+	#right {
+		float: left;
+		width: 70%;
+		min-width:650px;
+		border-top:8px solid #0084AD;
+	}
+	#footer {
+		clear: both;
+	}
+	#date-opened {
+		float: left;
+		margin-top: 25px;
+	}
+	#workorder-text-new {
+		float: left;
+		margin-top: 45px;
+		margin-left:30px;
+		width: 400px;
+		height: 220px;
+
+	}
+	#date-time {
+		font-size: 20px;
+		font-style: italic;
+	}
+	#logo-img {
+		padding-bottom: 30px;
+		cursor: pointer;
+	}
+	#WOid-input {
+		margin-left: 0px;
+		margin-top: 20px;
+	}
+	#new-lower-block {
+		width: 750px;
+	}
+	#new-upper-block {
+		width: 750px;
+	}
+	#save-workorder {
+		margin-top: 20px;
+	}
+	.record-widget {
+		margin-top: 20px;
+		width: 90%;
+		background: #222222 url("images/ui-bg_highlight-soft_35_222222_1x100.png") 100% 0% repeat-x;
+		font-size: 15px;
+
+	}
+	.records-widget {
+		border:4px outset #0084AD;
+		background: #202020;
+
+		float: left;
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#workorder-text-edit {
+		width: 600px;
+		height: 150px;
+	}
+	#AE-button-save {
+		margin-top:12px;
+	}
+	#shop-selectmenu-new-button{
+		margin-left:50px;
+	}
+	#WOid-input-new{
+		margin-left:50px;
+	}
+	.priorities{
+		margin-left:25px;
+	}
+	.bars{
+		margin-top:30px;
+	}
+	#welcome{
+		margin-top:15px;
+	}
+	#bar-open{
+		width:10px;
+		height: 10px;
+		background-color: rgb(94, 158, 214);
+                box-shadow: 0 0 5px 1px rgb(94, 158, 214);
+		margin-left:5px;
+	}
+	#bar-open-p1{
+		width:10px;
+		height: 10px;
+		background-color: rgba(255, 0, 0,.55);
+                box-shadow: 0 0 5px 1px rgb(255, 0, 0);
+		margin-left:5px;
+	}
+	#bar-open-p2{
+		width:10px;
+		height: 10px;
+		background-color: rgba(251, 164, 0,.55);
+                box-shadow: 0 0 5px 1px rgb(251, 164, 0);
+		margin-left:5px;
+	}
+	#bar-open-p3{
+		width:10px;
+		height: 10px;
+		background-color: rgba(255, 255, 0,.55);
+                box-shadow: 0 0 5px 1px rgb(255, 255, 0);
+		margin-left:5px;
+	}
+	#bar-open-p4{
+		width:10px;
+		height: 10px;
+		background-color: rgba(56, 191, 0,.55);
+                box-shadow: 0 0 5px 1px rgb(56, 191, 0);
+		margin-left:5px;
+	}
+
+	/* *************** ADMIN ************************ */
+
+	.fieldset{
+		display: inline-block;
+		/* background-color: #b5b5b5; */
+		background-color:#C3C4C4;
+		padding: 20px;
+		width: 650px;
+		border-radius: 10px;
+		/* border-color: #2e7db2; */
+
+	}
+
+	.text{
+		text-shadow: 3px 2px 2px #2e7db2;
+		text-shadow: -3px -2px 2px #0084ad;
+	}
+
+	.alists{
+		font-size: 1.2em;
+		list-style-type: none;
+	}
+
+	#lists{
+		float: right;
+	}
+
+	#activeShopsList{
+		position: relative;
+		left: -30px;
+	}
+
+	#nonActiveShopsList{
+		position: relative;
+		left: -30px;
+	}
+	#activeMechsList{
+		position: relative;
+		left: -30px;
+	}
+
+	#nonActiveMechsList{
+		position: relative;
+		left: -30px;
+	}
+	.statusListBtn{
+		float: right;
+	}

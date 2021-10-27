@@ -1,0 +1,9 @@
+<div id="edit-records-resultset">
+  <h1><%= appTitle %></h1>
+  <p>Today is <%= new Date() %></p>
+
+  <% data.forEach(function(rec) { %>
+   <% include recordwidget -%>
+  <% }) %>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="record-widget ui-corner-all ui-button" title="Click to edit" onclick="GetEditWO(
+`<%=  rec._id -%>`,`<%= rec.pri -%>`,`<%= rec.woID -%>`,`<%= rec.shopName -%>`,`<%= rec.mechName -%>`,
+`<%= rec.dateOpened -%>`,`<%= rec.workTodo -%>`);">
+  <p>
+  <em class="records-widget ui-corner-all"><b>Workorder ID:</b> <%= rec.woID -%></em>
+  <em class="records-widget ui-corner-all"><b>Priority:</b> <%= rec.pri -%></em>
+  <em class="records-widget ui-corner-all"><b>Location:</b> <%= rec.shopName -%></em>
+  <em class="records-widget ui-corner-all"><b>Mechanic:</b> <%= rec.mechName -%></em>
+  <br>
+  <em class="records-widget ui-corner-all"><b>Date Opened:</b> <%= rec.dateOpened -%></em>
+  <br>
+  <em class="records-widget ui-corner-all"><b>Description:</b> <%= rec.workTodo -%></em>
+  <em hidden><%=  rec._id -%></em>
+  </p>
+  <br>
+</div>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="us">
+ <head>
+  <meta charset="utf-8">
+  <title>Kiosk</title>
+  <link href="jquery-ui.css" rel="stylesheet">
+  <link href="kiosk.css" rel="stylesheet">
+ </head>
+<body>
+
+<!-- Top-Left Logo-->
+<div id="head">
+  <p>
+    <img id="logo-img" src = "images/logo.png"/>
+  </p>
+</div>
+
+<!-- Accordion Menu -->
+<div id="left">
+<div id="kiosk-accordion">
+  <h3>Add/Edit Workorders</h3>
+    <ul>
+      <li class="accordion-list" title="Create a new workorder">
+        <button id="button-new"  class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-plus"></span>New Workorder</button>
+      </li>
+      <li class="accordion-list" title="Edit an existing workorder">
+        <button id="button-edit" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-arrowrefresh-1-s"></span>Edit Workorder</button>
+      </li>
+    </ul>
+  <h3>Search</h3>
+    <ul>
+      <li class="accordion-list" title="Search for open workorders">
+        <button id="search-button"  class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-search"></span>Search Workorders</button>
+      </li>
+      <li class="accordion-list" title="Search for closed workorders">
+        <button id="tbd" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-search"></span>Search Time Tracking</button>
+      </li>
+      <li class="accordion-list" title="Reporting">
+        <button id="reporting-button" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-search"></span>Reporting</button>
+      </li>
+    </ul>
+  <h3>Misc</h3>
+    <ul>
+      <li class="accordion-list" title="Temp1">
+        <button id="tbd" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-image"></span>Catalogs</button>
+      </li>
+      <li class="accordion-list" title="Temp2">
+        <button id="tbd" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-image"></span>Time Recording</button>
+      </li>
+    </ul>
+  <h3>Administration</h3>
+    <ul>
+      <li class="accordion-list" title="Edit the available mechanics list">
+        <button id="showMechAdminBtn" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-notice"></span>Manage Mechanics</button>
+      </li>
+      <li class="accordion-list" title="Edit the available shops list">
+        <button id="showShopAdminBtn" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-notice"></span>Manage Shops</button>
+      </li>
+      <li class="accordion-list" title="Export workorders in .csv format for MP2">
+        <button id="tbd" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-notice"></span>Export Workorders</button>
+      </li>
+    </ul>
+</div>
+</div>
+
+
+<!-- Busy Spot -->
+<div id="right">
+
+  <!-- GREETING -->
+  <div id="greeting">
+
+    <img id="welcome" src="images/welcome.png" height="75" width="750"/>
+      <div class="bars">
+       <div>
+        <img src="images/open.png" height="25" width="150"/>
+        <canvas id="bar-open"></canvas>
+        <em id="open-val">value</em>
+       </div>
+       <div class="priorities">
+        <img src="images/P1.png" height="25" width="75"/>
+        <canvas id="bar-open-p1"></canvas>
+        <emid id="p1-val">value</em>
+       </div>
+       <div class="priorities">
+        <img src="images/P2.png" height="25" width="75"/>
+        <canvas id="bar-open-p2"></canvas>
+        <em id="p2-val">value</em>
+       </div>
+       <div class="priorities">
+        <img src="images/P3.png" height="25" width="75"/>
+        <canvas id="bar-open-p3"></canvas>
+        <em id="p3-val">value</em>
+       </div>
+       <div class="priorities">
+        <img src="images/P4.png" height="25" width="75"/>
+        <canvas id="bar-open-p4"></canvas>
+        <em id="p4-val">value</em>
+       </div>
+     </div>
+  </div>
+
+  <!-- NEW WORKORDER -->
+  <div id="NewWorkorder">
+    <h2>New Workorder</h2>
+    <div>
+      <div id="new-upper-block">
+        <select id="mechanic-selectmenu-new" class="kiosk-selectmenu">
+         <option>Mechanic</option>
+        </select>
+        <select id="shop-selectmenu-new" class="kiosk-selectmenu">
+          <option>Shop</option>
+        </select>
+        <p></p>
+        <select id="priority-selectmenu-new" class="kiosk-selectmenu">
+         <option>Priority</option>
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+        </select>
+        <input id="WOid-input-new" type="text" placeholder="Workorder ID"/>
+      </div>
+      <hr>
+
+     <div id="new-lower-block">
+      <div id="date-opened">Date Opened:</div>
+       <textarea id="workorder-text-new" class="workorder-text"
+        placeholder="Enter description of work to be performed..."></textarea>
+
+       <button id="save-workorder" class="ui-button ui-corner-all ui-widget">Save</button>
+      </div>
+
+   </div>
+  </div>
+
+  <!-- SEARCH WORKORDER -->
+  <div id="searchWO">
+   <h2>Search Workorders</h2>
+    <select id="mechanic-selectmenu-search" class="kiosk-selectmenu">
+     <option>Mechanic</option>
+    </select>
+
+    <select id="shop-selectmenu-search" class="kiosk-selectmenu">
+     <option>Shop</option>
+    </select>
+
+   <div id="tbd"></div>
+  </div>
+
+  <!-- EDIT EXISTING WORKORDER -->
+  <div id="Edit-existing">
+   <h2>Edit Workorders</h2>
+
+   <select id="mechanic-selectmenu-edit" class="kiosk-selectmenu">
+    <option>Mechanic</option>
+   </select>
+
+   <select id="shop-selectmenu-edit" class="kiosk-selectmenu">
+    <option>Shop</option>
+   </select>
+
+   <select id="priority-selectmenu-edit" class="kiosk-selectmenu">
+    <option>Priority</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+   </select>
+
+   <br>
+   <input id="WOid-input" type="text" placeholder="Workorder ID"/>
+    <button id="search-workorder-edit" class="ui-button ui-corner-all ui-widget">Search</button>
+    <br>
+    <hr>
+    <div id="edit-records-resultset"></div>
+  </div>
+
+<!-- ACTIVE EDIT EXISTING WORKORDER -->
+  <div id="Edit-existing-active">
+   <h2>Edit Workorders</h2>
+
+   <p>
+    <b>Mechanic Name:</b> <em id="AE-mechName"></em>
+    <br>
+    <b>Shop:</b> <em id="AE-shopName"></em>
+    <br>
+    <b>Priority:</b> <em id="AE-pri"></em>
+    <br>
+    <b>Workorder ID:</b> <em id="AE-woID"></em>
+    <br>
+    <b>Date Opened:</b> <em id="AE-dateOpened"></em>
+    <br>
+    <p></p>
+    <b>Description:</b> <em id="AE-workToDo"></em>
+    <hr>
+   </p>
+
+   <p>
+     <button id="AE-button-open" class="ui-button ui-corner-all ui-widget">Leave open</button>
+     <button id="AE-button-closed" class="ui-button ui-corner-all ui-widget">Close it</button>
+   <button id="AE-button-edit" class="ui-button ui-corner-all ui-widget">Edit</button>
+
+   </p>
+   <div id="edit-work-order">
+    <p>
+      <label class="text">Change Mechanic</label><br><br>
+      <select id="edit-mechanic-name-selectmenu" class="kiosk-selectmenu">
+      <option>Mechanic</option>
+      </select>
+    </p>
+    <p>
+      <label  class="text">Change Priority</label><br><br>
+      <select id="work-order-selectmenu-edit" class="kiosk-selectmenu">
+        <option>Priority</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </p>
+    <p> <!-- Updating Workorder mechanic and/or priority -->
+    <button id="save-editWorkOrder-btn" class="ui-button ui-corner-all ui-widget">Save Changes</button>
+    </p>
+  </div>
+
+   <p id="AE-save">
+   <textarea id="workorder-text-edit" placeholder="Enter description of work performed..."></textarea>
+   <br>
+   <button id="AE-button-save" class="ui-button ui-corner-all ui-widget">Save</button>
+   <em id="AE-recID" hidden>can't see me...</em>
+   </p>
+  </div>
+
+  <!-- ##################### Admin ########################## -->
+
+ <!-- Shops Admin UI -->
+   <div id="ShopsAdmin">
+     <fieldset class="fieldset">
+       <legend><h1>Shops Admin</h1></legend>
+         <div id="lists">
+           <h3 class="text">Edit/Delete Shop</h3>
+           <div>
+             <ul>
+               <li id="activeShopsList" class="text alists"></li>
+             </ul>
+           </div>
+           <div>
+             <ul>
+               <li id="nonActiveShopsList" class="text alists"></li>
+             </ul>
+           </div>
+         </div>
+         <h3 class="text">Shop Name</h3>
+         <input type="text" id="shopName" placeholder="Enter a name...">
+         <button type="button" id="saveShopBtn" class="btn">Save Shop</button>
+         <!-- <br> -->
+         <div id="editShopNameDiv">
+           <select id="shop-selectmenu-edit-name" class="kiosk-selectmenu">
+           <option>Shop</option>
+           </select><br><br>
+           <label for="editShopName" class="text"><h3>Update Shop Name</h3></label>
+           <input type="text" id="editShopName" placeholder="Updated Shop Name...">
+         </div>
+         <br>
+         <h3 class="text">Shop Status</h3>
+         <select name="status" id="shopStatus">
+           <option value="active">Active</option>
+           <option value="Inactive">Inactive</option>
+         </select><br><br>
+         <div class="btnset">
+           <button type="button" id="editShopBtn" class="btn">Update</button>
+           <button type="button" id="deleteShopBtn" class="btn deleteBtn">Delete</button>
+           <button type="button" id="cancelShopBtn" class="btn adminCancel">Cancel</button>
+         </div>
+
+         <div class="statusListBtn btnset">
+           <button type="button" id="activeShopBtn" class="btn ">Active</button>
+           <button type="button" id="nonActiveShopBtn" class="btn ">Inactive</button>
+         </div>
+     </fieldset>
+   </div>
+
+   <!--  Mechanics Admin UI-->
+   <div id="MechsAdmin">
+     <fieldset class="fieldset">
+       <legend><h1>Mechanics Admin</h1></legend>
+       <div id="lists">
+         <h3 class="text">Edit/Delete Mechanic</h3>
+         <div>
+           <ul>
+             <li id="activeMechsList" class="text alists"></li>
+           </ul>
+         </div>
+         <div>
+           <ul>
+             <li id="nonActiveMechsList" class="text alists"></li>
+           </ul>
+         </div>
+       </div>
+         <h3 class="text">Mechanic Name</h3>
+         <input type="text" id="mechName" placeholder="Enter a name...">
+         <button type="button" id="saveMechBtn" class="btn">Save Mechanic</button>
+         <br><br>
+         <div id="editMechNameDiv">
+           <select id="mechanic-selectmenu-edit-name" class="kiosk-selectmenu">
+            <option>Mechanic</option>
+           </select>
+           <label for="editMechName" class="text"><h3>Update Mechanic Name</h3></label>
+           <input type="text" id="editMechName" placeholder="Updated Mechanic name...">
+         </div>
+         <h3 class="text">Mechanic Status</h3>
+         <select name="status" id="mechStatus">
+           <option value="active">Active</option>
+           <option value="Inactive">Inactive</option>
+         </select><br><br>
+         <div class="btnset">
+           <button type="button" id="editMechBtn" class="btn">Update</button>
+           <button type="button" id="deleteMechBtn" class="btn deleteBtn">Delete</button>
+           <button type="button" id="cancelMechBtn" class="btn adminCancel">Cancel</button>
+         </div>
+         <div class="statusListBtn btnset">
+           <button type="button" id="activeMechBtn" class="btn">Active</button>
+           <button type="button" id="nonActiveMechBtn" class="btn">Inactive</button>
+         </div>
+     </fieldset>
+   </div>
+
+   <!-- ************* Reporting ******************* -->
+   <div id="reporting"></div>
+
+
+</div>
+
+<!-- Footer for Float-->
+<div id="footer"></div>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/client.js"></script>
+<script src="js/bundle.js"></script>
+<script src="js/Chart.min.js"></script>
+</body>
+</html>

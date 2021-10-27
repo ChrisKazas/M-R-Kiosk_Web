@@ -1,0 +1,64 @@
+
+
+Data Fields:
+-Mechanic
+-Shop
+-Priority
+-Date Opened
+-Date Closed
+-Description of work todo
+-Description of work done
+**************************
+
+MongodB-ified
+
+WorkOrder Collection
+-WorkOrderID(ObjectId)
+-MechanicID(ObjectId)
+-ShopID(ObjectId)
+-Priority(Integer)
+-Date Opened(Date)
+-Date Closed(Date)
+-Description of work todo(String)
+-Description of work done(String)
+
+Shop Collection
+-ShopID(ObjectId)
+-ShopName(String)
+-Active(Bool)
+
+Mechanic Collection
+-MechanicID(ObjectId)
+-MechanicName(String)
+-Active(Bool)
+
+*************************
+
+//****WorkOrder document example*************
+db.WorkOrder.insert({
+//WOid will be auto _id
+MechanicID: ObjectId(),
+ShopID: ObjectId(),
+Priority: 2,
+DateOpened: Date(2013,11,10,2,35),
+DateClosed: Date(2013,11,10,2,35),
+DescWorkTodo: 'Fix the gerber spreader',
+DescWorkDone: 'Fixed the gerber spreader'
+})
+
+//****Shop document example*************
+db.Shop.insert({
+//Shopid will be auto _id
+ShopName: 'Silk Screen',
+Active: true
+})
+
+//****Mechanic document example*************
+db.Mechanic.insert({
+//Mechanic will be auto _id
+MechanicName: 'Jones',
+Active: true
+})
+
+
+
